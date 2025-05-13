@@ -1,184 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Happy Birthday Bunty!</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy 13th Birthday Bunty!</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-family: 'Arial', sans-serif;
+            background: #282c34;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative;
+            flex-direction: column;
+        }
 
-    body {
-      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
-      overflow: hidden;
-      font-family: 'Poppins', sans-serif;
-      color: #fff;
-    }
+        /* Container for the image and text */
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            animation: bounceIn 2s ease-out;
+        }
 
-    .container {
-      position: relative;
-      height: 100vh;
-      width: 100vw;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      padding: 20px;
-      text-align: center;
-    }
+        /* Styling the blue box */
+        .blue-box {
+            background-color: #007bff;
+            padding: 50px 80px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 3s ease-out;
+            position: relative;
+            z-index: 10;
+        }
 
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-      animation: fadeIn 2s ease-in-out;
-      color: #fddb3a;
-      text-shadow: 2px 2px #000;
-    }
+        /* Happy Birthday Text */
+        .birthday-text {
+            font-size: 3rem;
+            color: #fff;
+            margin-top: 20px;
+            animation: slideInUp 1s ease-out forwards;
+        }
 
-    .gift-box {
-      position: relative;
-      width: 180px;
-      height: 180px;
-      background: #004aad;
-      border-radius: 15px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-      animation: bounce 2s infinite;
-      z-index: 1;
-    }
+        /* Animation for the image */
+        .birthday-image {
+            width: 250px; /* Image is now bigger */
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #fff;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+            animation: popIn 2s ease-out;
+        }
 
-    .gift-box::before {
-      content: '';
-      position: absolute;
-      top: -25px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 200px;
-      height: 25px;
-      background: #0070f3;
-      border-radius: 10px 10px 0 0;
-    }
+        /* Balloon animation */
+        .balloon {
+            position: absolute;
+            bottom: -100px;
+            width: 50px;
+            height: 70px;
+            background-color: #ff6347;
+            border-radius: 50%;
+            animation: floatUp 6s ease-in-out infinite;
+        }
 
-    .image-holder {
-      position: absolute;
-      bottom: -300px;
-      width: 180px;
-      height: 230px;
-      transition: bottom 1.2s ease-in-out;
-      z-index: 3;
-    }
+        .balloon:nth-child(1) {
+            left: 10%;
+            animation-delay: 0s;
+        }
 
-    .image-holder img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border: 5px solid #fff;
-      border-radius: 15px;
-      box-shadow: 0 15px 30px rgba(0,0,0,0.6);
-    }
+        .balloon:nth-child(2) {
+            left: 30%;
+            animation-delay: 1s;
+        }
 
-    .show {
-      bottom: 230px !important;
-    }
+        .balloon:nth-child(3) {
+            left: 50%;
+            animation-delay: 2s;
+        }
 
-    .falling {
-      position: absolute;
-      top: -50px;
-      font-size: 24px;
-      animation: fall linear infinite;
-      z-index: 0;
-    }
+        .balloon:nth-child(4) {
+            left: 70%;
+            animation-delay: 3s;
+        }
 
-    @keyframes fall {
-      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-      100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
-    }
+        .balloon:nth-child(5) {
+            left: 90%;
+            animation-delay: 4s;
+        }
 
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
+        /* Animations */
+        @keyframes bounceIn {
+            0% { transform: translate(-50%, -60%) scale(0); }
+            100% { transform: translate(-50%, -50%) scale(1); }
+        }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
 
-    .balloon {
-      position: absolute;
-      width: 30px;
-      height: 40px;
-      background: radial-gradient(circle, #fddb3a, #fcbf49);
-      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-      animation: float 6s infinite ease-in-out;
-      opacity: 0.8;
-      z-index: 0;
-    }
+        @keyframes slideInUp {
+            0% { transform: translateY(30px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
 
-    @keyframes float {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(-20px); }
-      100% { transform: translateY(0); }
-    }
+        @keyframes popIn {
+            0% { transform: scale(0); opacity: 0; }
+            50% { transform: scale(1.1); opacity: 1; }
+            100% { transform: scale(1); }
+        }
 
-    footer {
-      position: absolute;
-      bottom: 10px;
-      font-size: 0.9rem;
-      color: #aaa;
-      text-shadow: 1px 1px #000;
-    }
-  </style>
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(-200px);
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Adding some flower-like effects */
+        .flower {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #ffeb3b;
+            border-radius: 50%;
+            animation: flowerFall 6s infinite ease-in-out;
+        }
+
+        .flower:nth-child(6) {
+            left: 15%;
+            animation-delay: 0s;
+        }
+
+        .flower:nth-child(7) {
+            left: 35%;
+            animation-delay: 1s;
+        }
+
+        .flower:nth-child(8) {
+            left: 55%;
+            animation-delay: 2s;
+        }
+
+        .flower:nth-child(9) {
+            left: 75%;
+            animation-delay: 3s;
+        }
+
+        /* Flower falling animation */
+        @keyframes flowerFall {
+            0% {
+                transform: translateY(-300px);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
+
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h1>🎉 Happy 13th Birthday Bunty! 🎂</h1>
 
-    <div class="image-holder" id="photo">
-      <!-- Replace 'aniket.jpg' with your image file name -->
-      <img src="aniket.jpg" alt="Aniket">
+    <div class="container">
+        <!-- Blue box containing the text -->
+        <div class="blue-box">
+            <img src="aniket.jpg" alt="Aniket Image" class="birthday-image">
+            <div class="birthday-text">Happy 13th Birthday, Bunty!</div>
+        </div>
     </div>
 
-    <div class="gift-box"></div>
-    <footer>With love from your Mama 💙</footer>
-  </div>
+    <!-- Balloon and flower animations -->
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    <div class="flower"></div>
+    <div class="flower"></div>
+    <div class="flower"></div>
+    <div class="flower"></div>
 
-  <script>
-    window.onload = function () {
-      // Pop-up image
-      const photo = document.getElementById('photo');
-      photo.classList.add('show');
-
-      // Falling effects
-      for (let i = 0; i < 70; i++) {
-        const el = document.createElement('div');
-        el.classList.add('falling');
-        el.style.left = Math.random() * window.innerWidth + 'px';
-        el.style.animationDuration = 2 + Math.random() * 3 + 's';
-        el.innerHTML = ['⭐', '🌟', '🎈', '🎉', '💫'][Math.floor(Math.random() * 5)];
-        document.body.appendChild(el);
-        setTimeout(() => el.remove(), 6000);
-      }
-
-      // Balloons
-      for (let i = 0; i < 20; i++) {
-        const balloon = document.createElement('div');
-        balloon.classList.add('balloon');
-        balloon.style.left = Math.random() * window.innerWidth + 'px';
-        balloon.style.top = 80 + Math.random() * 400 + 'px';
-        balloon.style.background = `radial-gradient(circle, ${randomColor()}, ${randomColor()})`;
-        balloon.style.animationDuration = 3 + Math.random() * 4 + 's';
-        document.body.appendChild(balloon);
-        setTimeout(() => balloon.remove(), 7000);
-      }
-    };
-
-    function randomColor() {
-      const colors = ['#ffdd57', '#00d4ff', '#ff4081', '#4caf50', '#f44336', '#9c27b0'];
-      return colors[Math.floor(Math.random() * colors.length)];
-    }
-  </script>
 </body>
 </html>
