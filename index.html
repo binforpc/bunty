@@ -1,178 +1,384 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Happy Birthday Bunty!</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
-      overflow: hidden;
-      font-family: 'Poppins', sans-serif;
-      color: #fff;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      padding: 20px;
-    }
-
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 40px; /* Adjusted for more space */
-      animation: fadeIn 2s ease-in-out;
-      color: #fddb3a;
-      text-shadow: 2px 2px #000;
-    }
-
-    .gift-box {
-      position: relative;
-      width: 180px;
-      height: 180px;
-      background: #004aad;
-      border-radius: 15px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-      animation: bounce 2s infinite;
-      z-index: 1;
-    }
-
-    .gift-box::before {
-      content: '';
-      position: absolute;
-      top: -25px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 200px;
-      height: 25px;
-      background: #0070f3;
-      border-radius: 10px 10px 0 0;
-    }
-
-    .image-holder {
-      position: absolute;
-      bottom: -250px; /* Adjusted for larger image */
-      width: 250px;
-      height: 300px; /* Increased height */
-      transition: bottom 1.2s ease-in-out;
-      z-index: 3;
-    }
-
-    .image-holder img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border: 5px solid #fff;
-      border-radius: 15px;
-      box-shadow: 0 15px 30px rgba(0,0,0,0.6);
-    }
-
-    .show {
-      bottom: 230px !important;
-    }
-
-    .falling {
-      position: absolute;
-      top: -50px;
-      font-size: 24px;
-      animation: fall linear infinite;
-      z-index: 0;
-    }
-
-    @keyframes fall {
-      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-      100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
-    }
-
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .balloon {
-      position: absolute;
-      width: 30px;
-      height: 40px;
-      background: radial-gradient(circle, #fddb3a, #fcbf49);
-      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-      animation: float 6s infinite ease-in-out;
-      opacity: 0.8;
-      z-index: 0;
-    }
-
-    @keyframes float {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(-20px); }
-      100% { transform: translateY(0); }
-    }
-
-    footer {
-      position: absolute;
-      bottom: 10px;
-      font-size: 0.9rem;
-      color: #aaa;
-      text-shadow: 1px 1px #000;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Happy 13th Birthday Bunty!</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            touch-action: manipulation;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        .container {
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            padding: 20px;
+        }
+        
+        h1 {
+            font-family: 'Baloo Bhai 2', cursive;
+            font-size: 2.8rem;
+            color: #d32f2f;
+            text-shadow: 2px 2px 0 #ffeb3b, 3px 3px 0 rgba(0, 0, 0, 0.2);
+            margin-bottom: 1.5rem;
+            animation: bounce 2s infinite;
+        }
+        
+        .cake-container {
+            position: relative;
+            width: 280px;
+            height: 280px;
+            margin: 0 auto;
+        }
+        
+        .cake {
+            width: 220px;
+            height: 140px;
+            background: linear-gradient(to bottom, #f8bbd0, #e91e63);
+            border-radius: 10px 10px 0 0;
+            position: relative;
+            margin: 0 auto;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .cake:before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: 0;
+            width: 100%;
+            height: 30px;
+            background: linear-gradient(to bottom, #ffeb3b, #ffc107);
+            border-radius: 10px 10px 0 0;
+        }
+        
+        .cake:after {
+            content: '';
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 50px;
+            background: #ffeb3b;
+            border-radius: 50%;
+            box-shadow: 0 0 15px #ffeb3b;
+        }
+        
+        .candle {
+            position: absolute;
+            top: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 8px;
+            height: 40px;
+            background: linear-gradient(to bottom, #4caf50, #8bc34a);
+            border-radius: 5px;
+            z-index: 2;
+        }
+        
+        .flame {
+            position: absolute;
+            top: -75px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 15px;
+            height: 30px;
+            background: linear-gradient(to bottom, #ffeb3b, #ff5722);
+            border-radius: 50% 50% 20% 20%;
+            box-shadow: 0 0 15px #ffeb3b, 0 0 30px #ff9800;
+            animation: flicker 0.5s infinite alternate;
+            z-index: 3;
+        }
+        
+        .birthday-boy {
+            position: absolute;
+            top: -150px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 150px;
+            background-image: url('aniket.jpg');
+            background-size: cover;
+            background-position: center;
+            border-radius: 20% 20% 0 0;
+            border: 4px solid #fff;
+            z-index: 5;
+            animation: emerge 1.5s ease-out forwards;
+        }
+        
+        .message {
+            margin-top: 1.5rem;
+            font-size: 1.2rem;
+            color: #333;
+            background: rgba(255, 255, 255, 0.85);
+            padding: 0.8rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            line-height: 1.5;
+        }
+        
+        .signature {
+            margin-top: 0.8rem;
+            font-family: 'Baloo Bhai 2', cursive;
+            font-size: 1.5rem;
+            color: #d32f2f;
+        }
+        
+        /* Animations */
+        @keyframes emerge {
+            0% {
+                top: 80px;
+                opacity: 0;
+                transform: translateX(-50%) scale(0.5);
+            }
+            100% {
+                top: -20px;
+                opacity: 1;
+                transform: translateX(-50%) scale(1);
+            }
+        }
+        
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+        
+        @keyframes flicker {
+            0% {
+                transform: translateX(-50%) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(-50%) scale(1.1);
+                opacity: 0.8;
+            }
+        }
+        
+        /* Confetti and Flowers */
+        .confetti {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background-color: #f00;
+            opacity: 0;
+            animation: confetti-fall 5s linear infinite;
+            pointer-events: none;
+        }
+        
+        .flower {
+            position: absolute;
+            font-size: 18px;
+            opacity: 0;
+            animation: flower-fall 8s linear infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes confetti-fall {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        @keyframes flower-fall {
+            0% {
+                transform: translateY(-100px) rotate(0deg) scale(0.5);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg) scale(1.2);
+                opacity: 0;
+            }
+        }
+        
+        /* Tap Animation */
+        .tap-effect {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%);
+            border-radius: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            opacity: 1;
+            pointer-events: none;
+            z-index: 100;
+            animation: tap 0.8s forwards;
+        }
+        
+        @keyframes tap {
+            0% {
+                transform: translate(-50%, -50%) scale(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(3);
+                opacity: 0;
+            }
+        }
+        
+        /* Mobile-specific optimizations */
+        @media (max-height: 600px) {
+            h1 {
+                font-size: 2.2rem;
+                margin-bottom: 1rem;
+            }
+            
+            .cake-container {
+                width: 240px;
+                height: 240px;
+            }
+            
+            .cake {
+                width: 180px;
+                height: 120px;
+            }
+            
+            .birthday-boy {
+                width: 100px;
+                height: 130px;
+                top: -130px;
+            }
+            
+            .message {
+                font-size: 1rem;
+                margin-top: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h1>🎉 Happy 13th Birthday Bunty! 🎂</h1>
-
-    <div class="image-holder" id="photo">
-      <!-- Replace 'aniket.jpg' with your image file name -->
-      <img src="aniket.jpg" alt="Aniket">
+    <div class="container">
+        <h1>Happy 13th Birthday Bunty!</h1>
+        
+        <div class="cake-container">
+            <div class="birthday-boy"></div>
+            <div class="cake"></div>
+            <div class="candle"></div>
+            <div class="flame"></div>
+        </div>
+        
+        <div class="message">
+            Wishing my amazing nephew a fantastic 13th birthday! May all your dreams come true. Love you loads!
+            <div class="signature">- Mama</div>
+        </div>
     </div>
 
-    <div class="gift-box"></div>
-    <footer>With love from your Mama 💙</footer>
-  </div>
-
-  <script>
-    window.onload = function () {
-      // Pop-up image
-      const photo = document.getElementById('photo');
-      photo.classList.add('show');
-
-      // Falling effects
-      for (let i = 0; i < 70; i++) {
-        const el = document.createElement('div');
-        el.classList.add('falling');
-        el.style.left = Math.random() * window.innerWidth + 'px';
-        el.style.animationDuration = 2 + Math.random() * 3 + 's';
-        el.innerHTML = ['⭐', '🌟', '🎈', '🎉', '💫'][Math.floor(Math.random() * 5)];
-        document.body.appendChild(el);
-        setTimeout(() => el.remove(), 6000);
-      }
-
-      // Balloons
-      for (let i = 0; i < 20; i++) {
-        const balloon = document.createElement('div');
-        balloon.classList.add('balloon');
-        balloon.style.left = Math.random() * window.innerWidth + 'px';
-        balloon.style.top = 80 + Math.random() * 400 + 'px';
-        balloon.style.background = `radial-gradient(circle, ${randomColor()}, ${randomColor()})`;
-        balloon.style.animationDuration = 3 + Math.random() * 4 + 's';
-        document.body.appendChild(balloon);
-        setTimeout(() => balloon.remove(), 7000);
-      }
-    };
-
-    function randomColor() {
-      const colors = ['#ffdd57', '#00d4ff', '#ff4081', '#4caf50', '#f44336', '#9c27b0'];
-      return colors[Math.floor(Math.random() * colors.length)];
-    }
-  </script>
+    <script>
+        // Create confetti
+        function createConfetti() {
+            const colors = ['#f44336', '#e91e63', '#9c27b0', '#673ab7', '#3f51b5', '#2196f3', '#03a9f4', '#00bcd4', '#009688', '#4CAF50', '#8BC34A', '#CDDC39', '#FFEB3B', '#FFC107', '#FF9800', '#FF5722'];
+            
+            for (let i = 0; i < 80; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.animationDelay = Math.random() * 5 + 's';
+                confetti.style.animationDuration = 3 + Math.random() * 5 + 's';
+                confetti.style.width = 5 + Math.random() * 8 + 'px';
+                confetti.style.height = confetti.style.width;
+                document.body.appendChild(confetti);
+            }
+        }
+        
+        // Create falling flowers
+        function createFlowers() {
+            const flowers = ['🌸', '🌺', '🌻', '🌼', '🌷', '💐', '🏵️', '🌹'];
+            
+            for (let i = 0; i < 20; i++) {
+                const flower = document.createElement('div');
+                flower.className = 'flower';
+                flower.textContent = flowers[Math.floor(Math.random() * flowers.length)];
+                flower.style.left = Math.random() * 100 + 'vw';
+                flower.style.animationDelay = Math.random() * 8 + 's';
+                flower.style.animationDuration = 5 + Math.random() * 8 + 's';
+                flower.style.fontSize = 12 + Math.random() * 15 + 'px';
+                document.body.appendChild(flower);
+            }
+        }
+        
+        // Create tap effect
+        function createTapEffect(x, y) {
+            const tap = document.createElement('div');
+            tap.className = 'tap-effect';
+            tap.style.left = x + 'px';
+            tap.style.top = y + 'px';
+            document.body.appendChild(tap);
+            
+            setTimeout(() => {
+                tap.remove();
+            }, 800);
+        }
+        
+        // Initialize all effects
+        window.onload = function() {
+            createConfetti();
+            createFlowers();
+            
+            // Add tap effect on touch
+            document.addEventListener('touchstart', function(e) {
+                e.preventDefault();
+                const touch = e.touches[0];
+                createTapEffect(touch.clientX, touch.clientY);
+            });
+            
+            // Also work with mouse clicks for testing
+            document.addEventListener('click', function(e) {
+                createTapEffect(e.clientX, e.clientY);
+            });
+            
+            // Play birthday song (will only play after user interaction)
+            const playSong = function() {
+                const audio = new Audio();
+                audio.src = 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3'; // Replace with actual birthday song URL
+                audio.loop = true;
+                audio.volume = 0.3;
+                
+                // Remove this event listener after first interaction
+                document.body.removeEventListener('touchstart', playSong);
+                document.body.removeEventListener('click', playSong);
+                
+                audio.play().catch(e => console.log('Audio play prevented:', e));
+            };
+            
+            // Audio will play only after first user interaction
+            document.body.addEventListener('touchstart', playSong, { once: true });
+            document.body.addEventListener('click', playSong, { once: true });
+        };
+    </script>
 </body>
 </html>
