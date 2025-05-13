@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday Bunty!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      overflow: hidden;
+      font-family: 'Poppins', sans-serif;
+      color: #fff;
+    }
+
+    .container {
+      position: relative;
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      animation: fadeIn 2s ease-in-out;
+      color: #fddb3a;
+      text-shadow: 2px 2px #000;
+    }
+
+    .gift-box {
+      position: relative;
+      width: 180px;
+      height: 180px;
+      background: #004aad;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      animation: bounce 2s infinite;
+      z-index: 1;
+    }
+
+    .gift-box::before {
+      content: '';
+      position: absolute;
+      top: -25px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 200px;
+      height: 25px;
+      background: #0070f3;
+      border-radius: 10px 10px 0 0;
+    }
+
+    .image-holder {
+      position: absolute;
+      bottom: -300px;
+      width: 180px;
+      height: 230px;
+      transition: bottom 1.2s ease-in-out;
+      z-index: 3;
+    }
+
+    .image-holder img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border: 5px solid #fff;
+      border-radius: 15px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.6);
+    }
+
+    .show {
+      bottom: 230px !important;
+    }
+
+    .falling {
+      position: absolute;
+      top: -50px;
+      font-size: 24px;
+      animation: fall linear infinite;
+      z-index: 0;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .balloon {
+      position: absolute;
+      width: 30px;
+      height: 40px;
+      background: radial-gradient(circle, #fddb3a, #fcbf49);
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      animation: float 6s infinite ease-in-out;
+      opacity: 0.8;
+      z-index: 0;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+      100% { transform: translateY(0); }
+    }
+
+    footer {
+      position: absolute;
+      bottom: 10px;
+      font-size: 0.9rem;
+      color: #aaa;
+      text-shadow: 1px 1px #000;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎉 Happy 13th Birthday Bunty! 🎂</h1>
+
+    <div class="image-holder" id="photo">
+      <!-- Replace 'aniket.jpg' with your image file name -->
+      <img src="aniket.jpg" alt="Aniket">
+    </div>
+
+    <div class="gift-box"></div>
+    <footer>With love from your Mama 💙</footer>
+  </div>
+
+  <script>
+    window.onload = function () {
+      // Pop-up image
+      const photo = document.getElementById('photo');
+      photo.classList.add('show');
+
+      // Falling effects
+      for (let i = 0; i < 70; i++) {
+        const el = document.createElement('div');
+        el.classList.add('falling');
+        el.style.left = Math.random() * window.innerWidth + 'px';
+        el.style.animationDuration = 2 + Math.random() * 3 + 's';
+        el.innerHTML = ['⭐', '🌟', '🎈', '🎉', '💫'][Math.floor(Math.random() * 5)];
+        document.body.appendChild(el);
+        setTimeout(() => el.remove(), 6000);
+      }
+
+      // Balloons
+      for (let i = 0; i < 20; i++) {
+        const balloon = document.createElement('div');
+        balloon.classList.add('balloon');
+        balloon.style.left = Math.random() * window.innerWidth + 'px';
+        balloon.style.top = 80 + Math.random() * 400 + 'px';
+        balloon.style.background = `radial-gradient(circle, ${randomColor()}, ${randomColor()})`;
+        balloon.style.animationDuration = 3 + Math.random() * 4 + 's';
+        document.body.appendChild(balloon);
+        setTimeout(() => balloon.remove(), 7000);
+      }
+    };
+
+    function randomColor() {
+      const colors = ['#ffdd57', '#00d4ff', '#ff4081', '#4caf50', '#f44336', '#9c27b0'];
+      return colors[Math.floor(Math.random() * colors.length)];
+    }
+  </script>
+</body>
+</html>
